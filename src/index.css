@@ -3,6 +3,7 @@
   --btn-hover-color: rgb(255, 196, 0);
   --text-black-color: black;
   --text-white-color: white;
+  --text-prize-color: #e1a02e;
 }
 
 * {
@@ -17,19 +18,27 @@ body {
   background-color: var(--primary-color);
 }
 
+/* app component */
 .app {
   height: 100vh;
   display: grid;
   grid-template-columns: 2fr 1fr;
 }
 
-/* icon component */
 .left-column {
   display: grid;
   gap: 1rem;
   grid-template-rows: 50% 10% 35%;
 }
 
+.right-column {
+  display: grid;
+  gap: 1rem;
+  grid-template-rows: 70% 30%;
+  border: 1px solid red;
+}
+
+/* icon component */
 .icon{
   width: 100%;
   height: 100%;
@@ -67,13 +76,14 @@ body {
 
 .main-question{
   grid-column: span 2;
-  font-size: 3rem;
+  font-size: 2.2rem;
   color: var(--text-white-color);
   display: flex;
   justify-content: center;
   align-items: center;
   border: 1px solid var(--text-white-color);
   box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
 }
 
 .answer{
@@ -86,11 +96,36 @@ body {
   background-color: var(--primary-color);
   box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
   transition: all .3s;
+  border-radius: 5px;
 }
 
 .answer:hover {
   cursor: pointer;
   color: var(--text-black-color);
   background-color: var(--btn-hover-color);
-  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
+  box-shadow: none;
+}
+
+/* prize component */
+.prize{
+  border: 1px solid blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.prize-text{
+  color: var(--text-prize-color);
+  font-size: 2rem;
+  padding: .1rem 2rem;
+}
+
+.prize-save{
+  color: var(--text-white-color);
+}
+
+.prize-running{
+  background-color: var(--btn-hover-color);
+  color: var(--text-black-color);
+  border-radius: 5px;
 }
