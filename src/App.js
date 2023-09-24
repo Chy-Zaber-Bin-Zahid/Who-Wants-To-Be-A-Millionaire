@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="app">
       <div className='left-column'>
-        <Icon />
+        <Icon className="icon" />
         <Timer />
         <Question/>
       </div>

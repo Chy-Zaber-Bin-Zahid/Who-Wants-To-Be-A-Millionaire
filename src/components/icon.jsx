@@ -2,8 +2,8 @@ import React from "react";
 
 export default function Icon() {
   return (
-    <>
-      <img className="logo" src="../../public/img/logo.png" alt="Millionaire Logo" />
-    </>
+    <div className="icon">
+      <img className="logo" src={window.location.origin + '/img/logo.png'} alt="Millionaire Logo" />
+    </div>
   );
 }
