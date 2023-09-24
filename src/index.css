@@ -1,9 +1,25 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html{
+html,
+body {
   font-size: 65.5%;
+}
+
+.app {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+.left-column {
+  display: grid;
+  grid-template-rows: 50% 10% 40%;
+}
+
+.logo {
+  border: 1px solid red;
 }
