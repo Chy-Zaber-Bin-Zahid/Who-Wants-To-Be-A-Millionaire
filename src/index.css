@@ -16,8 +16,10 @@ body {
   grid-template-columns: 2fr 1fr;
 }
 
+/* icon component */
 .left-column {
   display: grid;
+  gap: 1rem;
   grid-template-rows: 50% 10% 40%;
 }
 
@@ -30,4 +32,20 @@ body {
 .logo {
   width: 47em;
   height: 100%;
+}
+
+/* timer component */
+.timer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.count-down{
+  font-size: 3rem;
+  color: white;
+  font-weight: bold;
+  border: 2px solid white;
+  padding: 1rem 1.5rem;
+  border-radius: 50%;
 }
