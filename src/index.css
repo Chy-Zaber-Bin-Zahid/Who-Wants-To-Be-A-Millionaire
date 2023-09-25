@@ -38,7 +38,7 @@ body {
 }
 
 /* icon component */
-.icon{
+.icon {
   width: 100%;
   height: 100%;
   text-align: center;
@@ -50,13 +50,13 @@ body {
 }
 
 /* timer component */
-.timer{
+.timer {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.count-down{
+.count-down {
   font-size: 3rem;
   color: var(--text-white-color);
   font-weight: bold;
@@ -65,15 +65,19 @@ body {
   border-radius: 50%;
 }
 
+.count-bellow {
+  padding: 1rem 2rem;
+}
+
 /* question component */
-.question{
+.question {
   display: grid;
-  grid-template-columns: repeat(2,1fr);
+  grid-template-columns: repeat(2, 1fr);
   padding: 1rem;
   gap: 1rem;
 }
 
-.main-question{
+.main-question {
   grid-column: span 2;
   font-size: 2.2rem;
   color: var(--text-white-color);
@@ -85,69 +89,85 @@ body {
   border-radius: 10px;
 }
 
-.answer{
+.answer {
   font-size: 2.2rem;
-  color: var(--text-white-color);
+  /* color: var(--text-white-color); */
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
   border: 1px solid var(--text-white-color);
   background-color: var(--primary-color);
   box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
-  transition: all .3s;
+  transition: all 0.3s;
   border-radius: 5px;
+  padding-left: 1rem;
 }
 
 .answer:hover {
   cursor: pointer;
-  color: var(--text-black-color);
+  /* color: var(--text-black-color); */
   background-color: var(--btn-hover-color);
   box-shadow: none;
 }
+.answer:hover .answer-span {
+  color: var(--text-white-color);
+}
+
+.answer:hover .fetch-ans {
+  color: var(--text-black-color);
+}
+
+.answer-span {
+  color: var(--text-prize-color);
+  transition: all 0.3s;
+}
+
+.fetch-ans {
+  color: var(--text-white-color);
+  transition: all 0.3s;
+}
 
 /* prize component */
-.prize{
+.prize {
   display: flex;
   justify-content: center;
   align-items: center;
   border-bottom: 1px solid var(--text-white-color);
 }
 
-.prize-text{
+.prize-text {
   color: var(--text-prize-color);
   font-size: 2rem;
-  padding: .1rem 2rem;
+  padding: 0.1rem 2rem;
 }
 
-.prize-save{
+.prize-save {
   color: var(--text-white-color);
 }
 
-.prize-running{
+.prize-running {
   background-color: var(--btn-hover-color);
   color: var(--text-black-color);
   border-radius: 5px;
 }
 
 /* option component */
-.option{
+.option {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap:2rem;
-  
+  gap: 2rem;
 }
 
-.option-three{
+.option-three {
   width: 100%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  
 }
 
-.option-three button{
+.option-three button {
   padding: 1rem 1rem;
   border-radius: 100px;
   background-color: rgb(25, 25, 126);
@@ -155,16 +175,15 @@ body {
   font-size: 1.8rem;
   font-weight: bold;
   color: var(--btn-hover-color);
-  transition: all .3s;
-  
+  transition: all 0.3s;
 }
 
-.option-three button:hover{
+.option-three button:hover {
   cursor: pointer;
   background-color: rgb(19, 19, 99);
 }
 
-.creator{
+.creator {
   font-size: 1.6rem;
   color: var(--text-white-color);
 }

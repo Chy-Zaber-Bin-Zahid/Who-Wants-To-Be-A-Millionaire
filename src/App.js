@@ -12,6 +12,10 @@ function App() {
     const playAudio = async () => {
       try {
         await audio.play();
+        setTimeout(() => {
+          audio.pause();
+          audio.currentTime = 0;
+        }, 62000);
       } catch (error) {
         // console.error("An error occurred while playing audio:", error);
       }
@@ -31,7 +35,7 @@ function App() {
       <div className="app">
         <div className="left-column">
           <Icon />
-          <Timer />
+          <Timer start={start} setStart={setStart}/>
           <Question />
         </div>
         <div className="right-column">
