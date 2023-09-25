@@ -1,14 +1,11 @@
-export default function Option() {
+import ThreeOption from "./threeOption";
+import Start from "./start";
+
+export default function Option({setStart}) {
   return (
     <div className="option">
-      <div className="option-three">
-        <button title="50:50">50:50</button>
-        <button title="Audience">👨‍👧‍👦</button>
-        <button title="Call">📞</button>
-      </div>
-      <div className="option-three">
-        <button>Start</button>
-      </div>
+      <ThreeOption />
+      <Start setStart={setStart} />
       <p className="creator">Made By Chowdhury Zaber Bin Zahid | 2023</p>
     </div>
   );

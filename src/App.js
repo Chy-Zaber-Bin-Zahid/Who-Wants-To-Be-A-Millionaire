@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Icon from "./components/icon";
 import Question from "./components/question";
 import Prize from "./components/prize";
@@ -6,8 +6,25 @@ import Timer from "./components/timer";
 import Option from "./components/option";
 
 function App() {
-  let audio = new Audio("/sound/intro.mp3")
-  audio.play()
+  const [start, setStart] = useState("/sound/intro.mp3");
+
+  useEffect(() => {
+    const playAudio = async () => {
+      try {
+        await audio.play();
+      } catch (error) {
+        // console.error("An error occurred while playing audio:", error);
+      }
+    };
+
+    const audio = new Audio(start);
+    playAudio();
+
+    return () => {
+      audio.pause();
+      audio.currentTime = 0;
+    };
+  }, [start]);
 
   return (
     <>
@@ -19,7 +36,7 @@ function App() {
         </div>
         <div className="right-column">
           <Prize />
-          <Option/>
+          <Option setStart={setStart} />
         </div>
       </div>
     </>
