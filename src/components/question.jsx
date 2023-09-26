@@ -1,8 +1,18 @@
 import { useEffect, useState } from "react";
 
-export default function Question({ questionStart, random, setRandom }) {
+export default function Question({
+  questionStart,
+  random,
+  setRandom,
+  setTimer,
+  setStart,
+  disabled,
+  setDisabled,
+  clickedBtn,setClickedBtn
+}) {
   const [question, setQuestion] = useState({});
   const [answer, setAnswer] = useState([]);
+
 
   useEffect(function () {
     async function fetchQuestion() {
@@ -36,6 +46,12 @@ export default function Question({ questionStart, random, setRandom }) {
     }
   }, [questionStart, question, random]);
 
+  function checkAns(idx) {
+    setClickedBtn(idx);
+    setTimer(3);
+    setStart("/sound/clicked.mp3");
+    setDisabled((d) => !d);
+  }
 
   return (
     <div className="question">
@@ -44,30 +60,27 @@ export default function Question({ questionStart, random, setRandom }) {
           ? "Welcome To Who Wants To Be A Millionaire!"
           : question[random].question}
       </h1>
-      <button className="answer">
-        <span className="answer-span">A:&nbsp;</span>
-        <span className="fetch-ans">
-          {questionStart === null ? "$$$$$" : answer[0]}
-        </span>
-      </button>
-      <button className="answer">
-        <span className="answer-span">B:&nbsp;</span>
-        <span className="fetch-ans">
-          {questionStart === null ? "$$$$$" : answer[1]}
-        </span>
-      </button>
-      <button className="answer">
-        <span className="answer-span">C:&nbsp;</span>
-        <span className="fetch-ans">
-          {questionStart === null ? "$$$$$" : answer[2]}
-        </span>
-      </button>
-      <button className="answer">
-        <span className="answer-span">D:&nbsp;</span>
-        <span className="fetch-ans">
-          {questionStart === null ? "$$$$$" : answer[3]}
-        </span>
-      </button>
+      {answer.map((answer, index) => (
+        <button
+          disabled={disabled}
+          onClick={() => checkAns(index)}
+          key={index}
+          className={clickedBtn === index ? "selected" : "answer"}
+        >
+          <span
+            className={
+              clickedBtn === index ? "answer-span-clicked" : "answer-span"
+            }
+          >
+            {String.fromCharCode(65 + index)}:&nbsp;
+          </span>
+          <span
+            className={clickedBtn === index ? "fetch-ans-clicked" : "fetch-ans"}
+          >
+            {questionStart === null ? "$$$$$" : answer}
+          </span>
+        </button>
+      ))}
     </div>
   );
 }

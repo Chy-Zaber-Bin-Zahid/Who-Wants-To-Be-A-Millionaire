@@ -11,7 +11,9 @@ function App() {
   const [questionStart, setQuestionStart] = useState(null);
   const [timer, setTimer] = useState(60);
   const [random, setRandom] = useState(null);
-  console.log(questionStart);
+  const [disabled, setDisabled] = useState(false);
+  const [clickedBtn, setClickedBtn] = useState(null);
+
 
   useEffect(() => {
     const playAudio = async () => {
@@ -51,6 +53,12 @@ function App() {
             setQuestionStart={setQuestionStart}
             random={random}
             setRandom={setRandom}
+            setTimer={setTimer}
+            setStart={setStart}
+            disabled={disabled}
+            setDisabled={setDisabled}
+            clickedBtn={clickedBtn}
+            setClickedBtn={setClickedBtn}
           />
         </div>
         <div className="right-column">
@@ -62,6 +70,8 @@ function App() {
               setStart={setStart}
               setQuestionStart={setQuestionStart}
               setTimer={setTimer}
+              setDisabled={setDisabled}
+              setClickedBtn={setClickedBtn}
             />
             <p className="creator">Made By Chowdhury Zaber Bin Zahid | 2023</p>
           </div>

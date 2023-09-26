@@ -1,4 +1,11 @@
-export default function Start({ start, setStart, setQuestionStart, setTimer }) {
+export default function Start({
+  start,
+  setStart,
+  setQuestionStart,
+  setTimer,
+  setDisabled,
+  setClickedBtn,
+}) {
   function handleStart() {
     setStart("/sound/background.mp3");
     setQuestionStart((q) => !q);
@@ -10,6 +17,14 @@ export default function Start({ start, setStart, setQuestionStart, setTimer }) {
     setTimer(60);
   }
 
+  function handleNext() {
+    setStart("/sound/background.mp3");
+    setQuestionStart((q) => !q);
+    setTimer(60);
+    setDisabled(false);
+    setClickedBtn(null);
+  }
+
   return (
     <div className="option-three">
       {start === "/sound/intro.mp3" && (
@@ -19,7 +34,7 @@ export default function Start({ start, setStart, setQuestionStart, setTimer }) {
         <button disabled>Answer Question</button>
       )}
       {start === "/sound/right.mp3" && (
-        <button onClick={handleStart}>Next Question</button>
+        <button onClick={handleNext}>Next Question</button>
       )}
       {start === "/sound/wrong.mp3" && (
         <button onClick={handleAgain}>Play Again</button>

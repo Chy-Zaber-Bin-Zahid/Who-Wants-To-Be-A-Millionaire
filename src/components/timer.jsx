@@ -4,7 +4,7 @@ export default function Timer({timer, setTimer, start, setStart }) {
   
 
   useEffect(() => {
-    if (start === "/sound/background.mp3" && timer !== 0) {
+    if (start !== "/sound/intro.mp3" && timer !== 0) {
       const timerInterval = setInterval(() => {
         setTimer((prevCountdown) => prevCountdown - 1);
       }, 1000);
@@ -13,8 +13,10 @@ export default function Timer({timer, setTimer, start, setStart }) {
       return () => {
         clearInterval(timerInterval);
       };
-    } else if (timer === 0) {
+    } else if (timer === 0 && start === "/sound/background.mp3") {
       setStart("/sound/wrong.mp3");
+    } else if (timer === 0 && start === "/sound/clicked.mp3") {
+      setStart("/sound/right.mp3");
     }
   }, [timer, start]);
 
