@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
-export default function Timer({ start, setStart }) {
-  const [timer, setTimer] = useState(60);
+export default function Timer({timer, setTimer, start, setStart }) {
+  
 
   useEffect(() => {
     if (start === "/sound/background.mp3" && timer !== 0) {
@@ -14,9 +14,9 @@ export default function Timer({ start, setStart }) {
         clearInterval(timerInterval);
       };
     } else if (timer === 0) {
-      setStart("/sound/background.mp3");
+      setStart("/sound/wrong.mp3");
     }
-  }, [start, timer, setStart]);
+  }, [timer, start]);
 
 
 
