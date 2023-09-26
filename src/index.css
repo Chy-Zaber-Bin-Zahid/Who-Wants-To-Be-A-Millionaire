@@ -92,7 +92,6 @@ body {
 
 .answer {
   font-size: 2.2rem;
-  /* color: var(--text-white-color); */
   display: flex;
   justify-content: left;
   align-items: center;
@@ -103,6 +102,8 @@ body {
   border-radius: 5px;
   padding: 1rem;
 }
+
+
 
 .answer:hover {
   cursor: pointer;
@@ -140,6 +141,28 @@ body {
   background-color: var(--btn-hover-color);
   box-shadow: none;
   
+}
+
+.correct{
+  font-size: 2.2rem;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  border: 1px solid var(--text-white-color);
+  background-color: green;
+  border-radius: 5px;
+  padding: 1rem;
+}
+
+.wrong{
+  font-size: 2.2rem;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  border: 1px solid var(--text-white-color);
+  background-color: red;
+  border-radius: 5px;
+  padding: 1rem;
 }
 
 .answer-span-clicked{

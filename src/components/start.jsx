@@ -5,6 +5,10 @@ export default function Start({
   setTimer,
   setDisabled,
   setClickedBtn,
+  setRightWrong,
+  setCorrectShow,
+  setCurrentIndex,
+  setRemoveTag,
 }) {
   function handleStart() {
     setStart("/sound/background.mp3");
@@ -15,6 +19,12 @@ export default function Start({
     setStart("/sound/background.mp3");
     setQuestionStart((q) => !q);
     setTimer(60);
+    setDisabled(false);
+    setClickedBtn(null);
+    setRightWrong(null);
+    setCorrectShow(false);
+    setCurrentIndex(0);
+    setRemoveTag(null)
   }
 
   function handleNext() {
@@ -23,6 +33,8 @@ export default function Start({
     setTimer(60);
     setDisabled(false);
     setClickedBtn(null);
+    setRightWrong(null);
+    setCorrectShow(false);
   }
 
   return (

@@ -8,12 +8,15 @@ export default function Question({
   setStart,
   disabled,
   setDisabled,
-  clickedBtn,setClickedBtn
+  clickedBtn,
+  setClickedBtn,
+  question,
+  setQuestion,
+  answer,
+  setAnswer,
+  rightWrong,
+  correctShow,
 }) {
-  const [question, setQuestion] = useState({});
-  const [answer, setAnswer] = useState([]);
-
-
   useEffect(function () {
     async function fetchQuestion() {
       const res = await fetch(
@@ -34,6 +37,7 @@ export default function Question({
   );
 
   useEffect(() => {
+    
     if (question[random]) {
       setAnswer(
         [
@@ -42,9 +46,29 @@ export default function Question({
           question[random].incorrect_answers[1],
           question[random].incorrect_answers[2],
         ].sort(() => Math.random() - 0.5)
+        
       );
+      
     }
   }, [questionStart, question, random]);
+
+  // useEffect(() => {
+  //   if (correctShow) {
+
+  //     const buttons = document.querySelectorAll(".answer");
+  //     buttons.forEach((button, index) => {
+  //       if (index === answer.indexOf(question[random].correct_answer)) {
+  //         console.log(index,answer.indexOf(question[random].correct_answer));
+  //         button.classList.add("correct");
+  //       }
+  //     });
+  //   } else {
+  //     const buttons = document.querySelectorAll(".answer");
+  //     buttons.forEach((button, index) => {
+  //       button.classList.remove("correct");
+  //     });
+  //   }
+  // }, [correctShow]);
 
   function checkAns(idx) {
     setClickedBtn(idx);
@@ -52,7 +76,7 @@ export default function Question({
     setStart("/sound/clicked.mp3");
     setDisabled((d) => !d);
   }
-
+  
   return (
     <div className="question">
       <h1 className="main-question">
@@ -65,7 +89,15 @@ export default function Question({
           disabled={disabled}
           onClick={() => checkAns(index)}
           key={index}
-          className={clickedBtn === index ? "selected" : "answer"}
+          className={`${
+            clickedBtn === index
+              ? rightWrong === true
+                ? "correct"
+                : rightWrong === false
+                ? "wrong"
+                : "selected"
+              : "answer"
+          }`}
         >
           <span
             className={

@@ -13,7 +13,12 @@ function App() {
   const [random, setRandom] = useState(null);
   const [disabled, setDisabled] = useState(false);
   const [clickedBtn, setClickedBtn] = useState(null);
-
+  const [question, setQuestion] = useState({});
+  const [rightWrong, setRightWrong] = useState(null);
+  const [answer, setAnswer] = useState([]);
+  const [correctShow, setCorrectShow] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [removeTag,setRemoveTag] = useState(null)
 
   useEffect(() => {
     const playAudio = async () => {
@@ -47,6 +52,14 @@ function App() {
             setTimer={setTimer}
             start={start}
             setStart={setStart}
+            question={question}
+            setQuestion={setQuestion}
+            random={random}
+            clickedBtn={clickedBtn}
+            setRightWrong={setRightWrong}
+            answer={answer}
+            setCorrectShow={setCorrectShow}
+            setRemoveTag={setRemoveTag}
           />
           <Question
             questionStart={questionStart}
@@ -59,10 +72,21 @@ function App() {
             setDisabled={setDisabled}
             clickedBtn={clickedBtn}
             setClickedBtn={setClickedBtn}
+            question={question}
+            setQuestion={setQuestion}
+            answer={answer}
+            setAnswer={setAnswer}
+            rightWrong={rightWrong}
+            correctShow={correctShow}
           />
         </div>
         <div className="right-column">
-          <Prize />
+          <Prize
+            correctShow={correctShow}
+            currentIndex={currentIndex}
+            setCurrentIndex={setCurrentIndex}
+            removeTag={removeTag}
+          />
           <div className="option">
             <ThreeOption />
             <Start
@@ -72,6 +96,10 @@ function App() {
               setTimer={setTimer}
               setDisabled={setDisabled}
               setClickedBtn={setClickedBtn}
+              setRightWrong={setRightWrong}
+              setCorrectShow={setCorrectShow}
+              setCurrentIndex={setCurrentIndex}
+              setRemoveTag={setRemoveTag}
             />
             <p className="creator">Made By Chowdhury Zaber Bin Zahid | 2023</p>
           </div>

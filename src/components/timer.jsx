@@ -1,8 +1,19 @@
 import { useEffect, useState } from "react";
 
-export default function Timer({timer, setTimer, start, setStart }) {
-  
-
+export default function Timer({
+  timer,
+  setTimer,
+  start,
+  setStart,
+  question,
+  setQuestion,
+  random,
+  clickedBtn,
+  setRightWrong,
+  answer,
+  setCorrectShow,
+  setRemoveTag
+}) {
   useEffect(() => {
     if (start !== "/sound/intro.mp3" && timer !== 0) {
       const timerInterval = setInterval(() => {
@@ -16,15 +27,31 @@ export default function Timer({timer, setTimer, start, setStart }) {
     } else if (timer === 0 && start === "/sound/background.mp3") {
       setStart("/sound/wrong.mp3");
     } else if (timer === 0 && start === "/sound/clicked.mp3") {
-      setStart("/sound/right.mp3");
+      if (question[random].correct_answer === answer[clickedBtn]) {
+        setRightWrong(true);
+        setStart("/sound/right.mp3");
+        setCorrectShow(true);
+        setRemoveTag(true)
+      } else {
+        let idx = 0;
+        for (let i = 0; i < answer.length; i++) {
+          if (question[random].correct_answer === answer[clickedBtn]) {
+            break;
+          }
+          idx++;
+        }
+
+        setRightWrong(false);
+        setStart("/sound/wrong.mp3");
+      }
     }
   }, [timer, start]);
 
-
-
   return (
     <div className="timer">
-      <span className={timer > 9 ? "count-down": "count-down count-bellow"}>{timer}</span>
+      <span className={timer > 9 ? "count-down" : "count-down count-bellow"}>
+        {timer}
+      </span>
     </div>
   );
 }
