@@ -20,10 +20,22 @@ export default function Question({ questionStart, random, setRandom }) {
     function () {
       setRandom(Math.floor(Math.random() * question.length));
     },
-    [question.length]
+    [questionStart, question.length]
   );
 
-  console.log(answer);
+  useEffect(() => {
+    if (question[random]) {
+      setAnswer(
+        [
+          question[random].correct_answer,
+          question[random].incorrect_answers[0],
+          question[random].incorrect_answers[1],
+          question[random].incorrect_answers[2],
+        ].sort(() => Math.random() - 0.5)
+      );
+    }
+  }, [questionStart, question, random]);
+
 
   return (
     <div className="question">
