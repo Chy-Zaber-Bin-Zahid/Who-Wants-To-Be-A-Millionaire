@@ -12,7 +12,8 @@ export default function Timer({
   setRightWrong,
   answer,
   setCorrectShow,
-  setRemoveTag
+  setRemoveTag,
+  setDisabled,
 }) {
   useEffect(() => {
     if (start !== "/sound/intro.mp3" && timer !== 0) {
@@ -25,22 +26,16 @@ export default function Timer({
         clearInterval(timerInterval);
       };
     } else if (timer === 0 && start === "/sound/background.mp3") {
+      setDisabled((d) => !d);
       setStart("/sound/wrong.mp3");
     } else if (timer === 0 && start === "/sound/clicked.mp3") {
       if (question[random].correct_answer === answer[clickedBtn]) {
         setRightWrong(true);
         setStart("/sound/right.mp3");
         setCorrectShow(true);
-        setRemoveTag(true)
+        setRemoveTag(true);
       } else {
-        let idx = 0;
-        for (let i = 0; i < answer.length; i++) {
-          if (question[random].correct_answer === answer[clickedBtn]) {
-            break;
-          }
-          idx++;
-        }
-
+        
         setRightWrong(false);
         setStart("/sound/wrong.mp3");
       }

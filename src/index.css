@@ -23,6 +23,7 @@ body {
   height: 100vh;
   display: grid;
   grid-template-columns: 2fr 1fr;
+  position: relative;
 }
 
 .left-column {
@@ -232,4 +233,29 @@ body {
 .creator {
   font-size: 1.6rem;
   color: var(--text-white-color);
+}
+
+/* popup component */
+.popup{
+  border: 2px solid var(--text-white-color);
+  padding: 2rem;
+  font-size: 2.2rem;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000000af;
+  display: none;
+}
+
+.display{
+  display: block;
+}
+
+.dollar{
+  color: var(--text-prize-color);
 }

@@ -5,6 +5,7 @@ import Prize from "./components/prize";
 import Timer from "./components/timer";
 import Start from "./components/start";
 import ThreeOption from "./components/threeOption";
+import Popup from "./components/popup";
 
 function App() {
   const [start, setStart] = useState("/sound/intro.mp3");
@@ -18,7 +19,7 @@ function App() {
   const [answer, setAnswer] = useState([]);
   const [correctShow, setCorrectShow] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [removeTag,setRemoveTag] = useState(null)
+  const [removeTag, setRemoveTag] = useState(null);
 
   useEffect(() => {
     const playAudio = async () => {
@@ -46,6 +47,7 @@ function App() {
     <>
       <div className="app">
         <div className="left-column">
+          <Popup timer={timer} start={start} />
           <Icon />
           <Timer
             timer={timer}
@@ -60,6 +62,7 @@ function App() {
             answer={answer}
             setCorrectShow={setCorrectShow}
             setRemoveTag={setRemoveTag}
+            setDisabled={setDisabled}
           />
           <Question
             questionStart={questionStart}
