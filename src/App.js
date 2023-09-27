@@ -21,6 +21,7 @@ function App() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [removeTag, setRemoveTag] = useState(null);
   const [addClass, setAddClass] = useState("");
+  const [threeDisabled, setThreeDisabled] = useState(false);
 
   useEffect(() => {
     const playAudio = async () => {
@@ -110,7 +111,7 @@ function App() {
             removeTag={removeTag}
           />
           <div className="option">
-            <ThreeOption />
+            <ThreeOption setThreeDisabled={setThreeDisabled} threeDisabled={threeDisabled} />
             <Start
               start={start}
               setStart={setStart}

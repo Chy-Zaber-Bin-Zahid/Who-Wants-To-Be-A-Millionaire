@@ -1,6 +1,6 @@
-export default function ThreeOption() {
+export default function ThreeOption({ threeDisabled,setThreeDisabled }) {
   return (
-    <div className="option-three">
+    <div disabled={threeDisabled} className="option-three">
       <button title="50:50">50:50</button>
       <button title="Audience">👨‍👧‍👦</button>
       <button title="Call">📞</button>

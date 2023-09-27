@@ -37,7 +37,6 @@ export default function Question({
   );
 
   useEffect(() => {
-    
     if (question[random]) {
       setAnswer(
         [
@@ -46,29 +45,9 @@ export default function Question({
           question[random].incorrect_answers[1],
           question[random].incorrect_answers[2],
         ].sort(() => Math.random() - 0.5)
-        
       );
-      
     }
   }, [questionStart, question, random]);
-
-  // useEffect(() => {
-  //   if (correctShow) {
-
-  //     const buttons = document.querySelectorAll(".answer");
-  //     buttons.forEach((button, index) => {
-  //       if (index === answer.indexOf(question[random].correct_answer)) {
-  //         console.log(index,answer.indexOf(question[random].correct_answer));
-  //         button.classList.add("correct");
-  //       }
-  //     });
-  //   } else {
-  //     const buttons = document.querySelectorAll(".answer");
-  //     buttons.forEach((button, index) => {
-  //       button.classList.remove("correct");
-  //     });
-  //   }
-  // }, [correctShow]);
 
   function checkAns(idx) {
     setClickedBtn(idx);
@@ -76,7 +55,7 @@ export default function Question({
     setStart("/sound/clicked.mp3");
     setDisabled((d) => !d);
   }
-  
+
   return (
     <div className="question">
       <h1 className="main-question">
@@ -86,7 +65,12 @@ export default function Question({
       </h1>
       {answer.map((answer, index) => (
         <button
-          disabled={disabled}
+          disabled={
+            document.querySelector(".main-question").textContent ===
+            "Welcome To Who Wants To Be A Millionaire!"
+              ? true
+              : disabled
+          }
           onClick={() => checkAns(index)}
           key={index}
           className={`${
