@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 export default function Question({
   questionStart,
@@ -16,6 +16,10 @@ export default function Question({
   setAnswer,
   rightWrong,
   correctShow,
+  fiftyFifty,
+  setFiftyFifty,
+  setDeadFiftyFifty,
+  setFiftyFiftyDisabled,
 }) {
   useEffect(function () {
     async function fetchQuestion() {
@@ -49,11 +53,26 @@ export default function Question({
     }
   }, [questionStart, question, random]);
 
+  useEffect(() => {
+    if (question[random]) {
+      const twoIndex = [];
+      const searchString = question[random].correct_answer;
+      twoIndex.push(searchString);
+      answer.pop(searchString);
+      const randomIndex = Math.floor(Math.random() * answer.length);
+      twoIndex.push(answer[randomIndex]);
+      twoIndex.sort(() => Math.random() - 0.5);
+      setAnswer(twoIndex);
+    }
+  }, [fiftyFifty]);
+
   function checkAns(idx) {
     setClickedBtn(idx);
     setTimer(3);
     setStart("/sound/clicked.mp3");
     setDisabled((d) => !d);
+    // setDeadFiftyFifty(true);
+    setFiftyFiftyDisabled(true)
   }
 
   return (

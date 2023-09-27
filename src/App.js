@@ -21,7 +21,9 @@ function App() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [removeTag, setRemoveTag] = useState(null);
   const [addClass, setAddClass] = useState("");
-  const [threeDisabled, setThreeDisabled] = useState(false);
+  const [fiftyFiftyDisabled, setFiftyFiftyDisabled] = useState(true);
+  const [fiftyFifty, setFiftyFifty] = useState(false);
+  const [deadFiftyFifty, setDeadFiftyFifty] = useState(null);
 
   useEffect(() => {
     const playAudio = async () => {
@@ -60,7 +62,7 @@ function App() {
         button.classList.remove("correct");
       });
     }
-  }, [addClass,question,answer]);
+  }, [addClass, question, answer]);
 
   return (
     <>
@@ -83,6 +85,8 @@ function App() {
             setRemoveTag={setRemoveTag}
             setDisabled={setDisabled}
             setAddClass={setAddClass}
+            deadFiftyFifty={deadFiftyFifty}
+            setFiftyFiftyDisabled={setFiftyFiftyDisabled}
           />
           <Question
             questionStart={questionStart}
@@ -101,6 +105,10 @@ function App() {
             setAnswer={setAnswer}
             rightWrong={rightWrong}
             correctShow={correctShow}
+            fiftyFifty={fiftyFifty}
+            setFiftyFifty={setFiftyFifty}
+            setDeadFiftyFifty={setDeadFiftyFifty}
+            setFiftyFiftyDisabled={setFiftyFiftyDisabled}
           />
         </div>
         <div className="right-column">
@@ -111,7 +119,12 @@ function App() {
             removeTag={removeTag}
           />
           <div className="option">
-            <ThreeOption setThreeDisabled={setThreeDisabled} threeDisabled={threeDisabled} />
+            <ThreeOption
+              setFiftyFiftyDisabled={setFiftyFiftyDisabled}
+              fiftyFiftyDisabled={fiftyFiftyDisabled}
+              setFiftyFifty={setFiftyFifty}
+              setDeadFiftyFifty={setDeadFiftyFifty}
+            />
             <Start
               start={start}
               setStart={setStart}
@@ -124,6 +137,10 @@ function App() {
               setCurrentIndex={setCurrentIndex}
               setRemoveTag={setRemoveTag}
               setAddClass={setAddClass}
+              setFiftyFiftyDisabled={setFiftyFiftyDisabled}
+              setFiftyFifty={setFiftyFifty}
+              deadFiftyFifty={deadFiftyFifty}
+              setDeadFiftyFifty={setDeadFiftyFifty}
             />
             <p className="creator">Made By Chowdhury Zaber Bin Zahid | 2023</p>
           </div>

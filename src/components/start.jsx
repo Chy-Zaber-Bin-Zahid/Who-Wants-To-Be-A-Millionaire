@@ -9,11 +9,16 @@ export default function Start({
   setCorrectShow,
   setCurrentIndex,
   setRemoveTag,
-  setAddClass
+  setAddClass,
+  setFiftyFiftyDisabled,
+  setFiftyFifty,
+  deadFiftyFifty,
+  setDeadFiftyFifty
 }) {
   function handleStart() {
     setStart("/sound/background.mp3");
     setQuestionStart((q) => !q);
+    setFiftyFiftyDisabled(false);
   }
 
   function handleAgain() {
@@ -25,8 +30,11 @@ export default function Start({
     setRightWrong(null);
     setCorrectShow(false);
     setCurrentIndex(0);
-    setRemoveTag(null)
-    setAddClass("")
+    setRemoveTag(null);
+    setAddClass("");
+    setFiftyFiftyDisabled(false);
+    setFiftyFifty(false);
+    setDeadFiftyFifty(null)
   }
 
   function handleNext() {
@@ -37,7 +45,15 @@ export default function Start({
     setClickedBtn(null);
     setRightWrong(null);
     setCorrectShow(false);
-    setAddClass("")
+    setAddClass("");
+    console.log("hello");
+    if (deadFiftyFifty === null) {
+      console.log("helloF");
+      setFiftyFiftyDisabled(false);
+    } else if (deadFiftyFifty === false) {
+      setFiftyFiftyDisabled(true);
+      console.log("helloT");
+    }
   }
 
   return (

@@ -1,9 +1,38 @@
-export default function ThreeOption({ threeDisabled,setThreeDisabled }) {
+export default function ThreeOption({
+  fiftyFiftyDisabled,
+  setFiftyFiftyDisabled,
+  setFiftyFifty,
+  setDeadFiftyFifty,
+}) {
+  function clickedFiftyFifty() {
+    setFiftyFiftyDisabled(true);
+    setFiftyFifty(true);
+    setDeadFiftyFifty(true);
+  }
+
   return (
-    <div disabled={threeDisabled} className="option-three">
-      <button title="50:50">50:50</button>
-      <button title="Audience">👨‍👧‍👦</button>
-      <button title="Call">📞</button>
+    <div className="option-three">
+      <button
+        disabled={fiftyFiftyDisabled}
+        onClick={clickedFiftyFifty}
+        title="50:50"
+      >
+        50:50
+      </button>
+      <button
+        disabled={fiftyFiftyDisabled}
+        onClick={clickedFiftyFifty}
+        title="Audience"
+      >
+        👨‍👧‍👦
+      </button>
+      <button
+        disabled={fiftyFiftyDisabled}
+        onClick={clickedFiftyFifty}
+        title="Call"
+      >
+        📞
+      </button>
     </div>
   );
 }
