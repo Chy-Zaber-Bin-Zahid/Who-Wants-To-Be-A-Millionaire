@@ -14,6 +14,7 @@ export default function Timer({
   setCorrectShow,
   setRemoveTag,
   setDisabled,
+  setAddClass,
 }) {
   useEffect(() => {
     if (start !== "/sound/intro.mp3" && timer !== 0) {
@@ -35,8 +36,8 @@ export default function Timer({
         setCorrectShow(true);
         setRemoveTag(true);
       } else {
-        
         setRightWrong(false);
+        setAddClass("wrong");
         setStart("/sound/wrong.mp3");
       }
     }

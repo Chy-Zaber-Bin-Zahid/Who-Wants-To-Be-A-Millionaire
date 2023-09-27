@@ -9,6 +9,7 @@ export default function Start({
   setCorrectShow,
   setCurrentIndex,
   setRemoveTag,
+  setAddClass
 }) {
   function handleStart() {
     setStart("/sound/background.mp3");
@@ -25,6 +26,7 @@ export default function Start({
     setCorrectShow(false);
     setCurrentIndex(0);
     setRemoveTag(null)
+    setAddClass("")
   }
 
   function handleNext() {
@@ -35,6 +37,7 @@ export default function Start({
     setClickedBtn(null);
     setRightWrong(null);
     setCorrectShow(false);
+    setAddClass("")
   }
 
   return (

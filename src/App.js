@@ -20,6 +20,7 @@ function App() {
   const [correctShow, setCorrectShow] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [removeTag, setRemoveTag] = useState(null);
+  const [addClass, setAddClass] = useState("");
 
   useEffect(() => {
     const playAudio = async () => {
@@ -43,6 +44,23 @@ function App() {
     };
   }, [start]);
 
+  useEffect(() => {
+    if (addClass !== "") {
+      const buttons = document.querySelectorAll(".answer");
+      buttons.forEach((button, index) => {
+        if (index === answer.indexOf(question[random].correct_answer)) {
+          console.log(index, answer.indexOf(question[random].correct_answer));
+          button.classList.add("correct");
+        }
+      });
+    } else {
+      const buttons = document.querySelectorAll(".answer");
+      buttons.forEach((button) => {
+        button.classList.remove("correct");
+      });
+    }
+  }, [addClass,question,answer]);
+
   return (
     <>
       <div className="app">
@@ -63,6 +81,7 @@ function App() {
             setCorrectShow={setCorrectShow}
             setRemoveTag={setRemoveTag}
             setDisabled={setDisabled}
+            setAddClass={setAddClass}
           />
           <Question
             questionStart={questionStart}
@@ -103,6 +122,7 @@ function App() {
               setCorrectShow={setCorrectShow}
               setCurrentIndex={setCurrentIndex}
               setRemoveTag={setRemoveTag}
+              setAddClass={setAddClass}
             />
             <p className="creator">Made By Chowdhury Zaber Bin Zahid | 2023</p>
           </div>
