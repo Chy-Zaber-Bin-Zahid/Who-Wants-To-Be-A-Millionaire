@@ -7,7 +7,22 @@ export default function Popup({
   dollar,
   setDollar,
   removeTag,
+  leave,
 }) {
+  const h1Elements = document.querySelectorAll(".prize-text");
+  useEffect(() => {
+    h1Elements.forEach((h1) => {
+      if (
+        h1.classList.contains("prize-running") ||
+        h1.classList.contains("prize-running-save")
+      ) {
+        const store = h1.textContent.replace(/.*?\$\s*/, "");
+        setDollar(`${store} $`);
+        console.log("in");
+      }
+    });
+  }, [leave]);
+
   useEffect(() => {
     if (currentIndex > 10) {
       setDollar("0 $");
@@ -21,20 +36,16 @@ export default function Popup({
   }, [currentIndex, setDollar]);
 
   useEffect(() => {
-    // const prizeRunningElement = document.querySelector(".prize-running");
     if (timer === 0 && start === "/sound/wrong.mp3") {
       document.querySelector(".popup").classList.add("display");
-      // if (
-      //   prizeRunningElement &&
-      //   prizeRunningElement.classList.contains("prize-save")
-      // ) {
-      //   const textContent = prizeRunningElement.textContent;
-      //   setDollar(textContent);
-      // }
     } else if (timer === 0 && start === "/sound/victory.mp3") {
       document.querySelector(".popup").classList.add("display");
     } else {
       document.querySelector(".popup").classList.remove("display");
+    }
+
+    if (start === "/sound/leave.mp3") {
+      document.querySelector(".popup").classList.add("display");
     }
   }, [timer, start]);
 

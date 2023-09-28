@@ -22,6 +22,7 @@ function App() {
   const [removeTag, setRemoveTag] = useState(null);
   const [addClass, setAddClass] = useState("");
   const [dollar, setDollar] = useState("0 $");
+  const [leave, setLeave] = useState(false);
   const [fiftyFiftyDisabled, setFiftyFiftyDisabled] = useState(true);
   const [fiftyFifty, setFiftyFifty] = useState(false);
   const [deadFiftyFifty, setDeadFiftyFifty] = useState(null);
@@ -75,6 +76,7 @@ function App() {
             setDollar={setDollar}
             dollar={dollar}
             removeTag={removeTag}
+            leave={leave}
           />
           <Icon />
           <Timer
@@ -96,6 +98,7 @@ function App() {
             setFiftyFiftyDisabled={setFiftyFiftyDisabled}
             currentIndex={currentIndex}
             removeTag={removeTag}
+            leave={leave}
           />
           <Question
             questionStart={questionStart}
@@ -153,6 +156,7 @@ function App() {
               setDeadFiftyFifty={setDeadFiftyFifty}
               setDollar={setDollar}
               currentIndex={currentIndex}
+              setLeave={setLeave}
             />
             <p className="creator">Made By Chowdhury Zaber Bin Zahid | 2023</p>
           </div>

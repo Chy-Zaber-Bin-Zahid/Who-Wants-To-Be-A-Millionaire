@@ -16,6 +16,7 @@ export default function Start({
   setDeadFiftyFifty,
   setDollar,
   currentIndex,
+  setLeave,
 }) {
   function handleStart() {
     setStart("/sound/background.mp3");
@@ -38,6 +39,7 @@ export default function Start({
     setFiftyFifty(false);
     setDeadFiftyFifty(null);
     setDollar("0 $");
+    setLeave(false)
   }
 
   function handleNext() {
@@ -59,25 +61,26 @@ export default function Start({
     }
   }
 
+  function handleLeave() {
+    setTimer(0);
+    setLeave(true)
+  }
+
   return (
     <div className="option-three">
       {start === "/sound/intro.mp3" && (
         <button onClick={handleStart}>Start</button>
       )}
       {start === "/sound/background.mp3" && (
-        <button disabled>Answer Question</button>
+        <button onClick={handleLeave}>Leave</button>
       )}
       {start === "/sound/right.mp3" && (
-        <button onClick={handleNext}>
-          Next Question
-        </button>
+        <button onClick={handleNext}>Next Question</button>
       )}
       {start === "/sound/victory.mp3" && (
-        <button onClick={handleAgain}>
-         Play Again
-        </button>
+        <button onClick={handleAgain}>Play Again</button>
       )}
-      {start === "/sound/wrong.mp3" && (
+      {(start === "/sound/wrong.mp3" || start === "/sound/leave.mp3") && (
         <button onClick={handleAgain}>Play Again</button>
       )}
     </div>
