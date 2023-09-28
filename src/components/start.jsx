@@ -15,13 +15,17 @@ export default function Start({
   deadFiftyFifty,
   setDeadFiftyFifty,
   setDollar,
-  currentIndex,
+
   setLeave,
+  setAudience,
+  setDeadAudience,
+  setAudienceDisabled,
 }) {
   function handleStart() {
     setStart("/sound/background.mp3");
     setQuestionStart((q) => !q);
     setFiftyFiftyDisabled(false);
+    setAudienceDisabled(false);
   }
 
   function handleAgain() {
@@ -37,9 +41,12 @@ export default function Start({
     setAddClass("");
     setFiftyFiftyDisabled(false);
     setFiftyFifty(false);
+    setAudience(false);
     setDeadFiftyFifty(null);
+    setDeadAudience(null);
     setDollar("0 $");
-    setLeave(false)
+    setLeave(false);
+    setAudienceDisabled(false);
   }
 
   function handleNext() {
@@ -63,7 +70,8 @@ export default function Start({
 
   function handleLeave() {
     setTimer(0);
-    setLeave(true)
+    setLeave(true);
+    setAudienceDisabled(true);
   }
 
   return (

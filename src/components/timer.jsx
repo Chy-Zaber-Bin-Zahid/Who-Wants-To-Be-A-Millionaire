@@ -6,7 +6,7 @@ export default function Timer({
   start,
   setStart,
   question,
-  setQuestion,
+
   random,
   clickedBtn,
   setRightWrong,
@@ -15,7 +15,7 @@ export default function Timer({
   setRemoveTag,
   setDisabled,
   setAddClass,
-  deadFiftyFifty,
+
   setFiftyFiftyDisabled,
   currentIndex,
   removeTag,
@@ -31,7 +31,9 @@ export default function Timer({
       return () => {
         clearInterval(timerInterval);
       };
-    } else if (timer === 0 && leave === true) {
+    }
+    
+    else if (timer === 0 && leave === true) {
       setFiftyFiftyDisabled(true);
       setDisabled(true);
       setStart("/sound/leave.mp3");

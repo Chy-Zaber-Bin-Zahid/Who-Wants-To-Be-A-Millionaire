@@ -6,6 +6,7 @@ import Timer from "./components/timer";
 import Start from "./components/start";
 import ThreeOption from "./components/threeOption";
 import Popup from "./components/popup";
+import Audience from "./components/audience";
 
 function App() {
   const [start, setStart] = useState("/sound/intro.mp3");
@@ -26,6 +27,10 @@ function App() {
   const [fiftyFiftyDisabled, setFiftyFiftyDisabled] = useState(true);
   const [fiftyFifty, setFiftyFifty] = useState(false);
   const [deadFiftyFifty, setDeadFiftyFifty] = useState(null);
+  const [percentages, setPercentages] = useState([]);
+  const [audienceDisabled, setAudienceDisabled] = useState(true);
+  const [audience, setAudience] = useState(false);
+  const [deadAudience, setDeadAudience] = useState(null);
 
   useEffect(() => {
     const playAudio = async () => {
@@ -69,6 +74,13 @@ function App() {
     <>
       <div className="app">
         <div className="left-column">
+          <Audience
+            answer={answer}
+            audience={audience}
+            setAudience={setAudience}
+            percentages={percentages}
+
+          />
           <Popup
             timer={timer}
             start={start}
@@ -85,7 +97,6 @@ function App() {
             start={start}
             setStart={setStart}
             question={question}
-            setQuestion={setQuestion}
             random={random}
             clickedBtn={clickedBtn}
             setRightWrong={setRightWrong}
@@ -94,7 +105,6 @@ function App() {
             setRemoveTag={setRemoveTag}
             setDisabled={setDisabled}
             setAddClass={setAddClass}
-            deadFiftyFifty={deadFiftyFifty}
             setFiftyFiftyDisabled={setFiftyFiftyDisabled}
             currentIndex={currentIndex}
             removeTag={removeTag}
@@ -116,11 +126,9 @@ function App() {
             answer={answer}
             setAnswer={setAnswer}
             rightWrong={rightWrong}
-            correctShow={correctShow}
             fiftyFifty={fiftyFifty}
-            setFiftyFifty={setFiftyFifty}
-            setDeadFiftyFifty={setDeadFiftyFifty}
             setFiftyFiftyDisabled={setFiftyFiftyDisabled}
+            setAudienceDisabled={setAudienceDisabled}
           />
         </div>
         <div className="right-column">
@@ -137,6 +145,15 @@ function App() {
               setFiftyFifty={setFiftyFifty}
               deadFiftyFifty={deadFiftyFifty}
               setDeadFiftyFifty={setDeadFiftyFifty}
+              setAudienceDisabled={setAudienceDisabled}
+              setDeadAudience={setDeadAudience}
+              setAudience={setAudience}
+              deadAudience={deadAudience}
+              timer={timer}
+              setTimer={setTimer}
+              audienceDisabled={audienceDisabled}
+              setPercentages={setPercentages}
+              answer={answer}
             />
             <Start
               start={start}
@@ -155,8 +172,10 @@ function App() {
               deadFiftyFifty={deadFiftyFifty}
               setDeadFiftyFifty={setDeadFiftyFifty}
               setDollar={setDollar}
-              currentIndex={currentIndex}
               setLeave={setLeave}
+              setAudience={setAudience}
+              setDeadAudience={setDeadAudience}
+              setAudienceDisabled={setAudienceDisabled}
             />
             <p className="creator">Made By Chowdhury Zaber Bin Zahid | 2023</p>
           </div>

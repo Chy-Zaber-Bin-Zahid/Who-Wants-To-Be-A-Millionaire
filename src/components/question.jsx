@@ -15,10 +15,8 @@ export default function Question({
   answer,
   setAnswer,
   rightWrong,
-  correctShow,
   fiftyFifty,
-  setFiftyFifty,
-  setDeadFiftyFifty,
+  setAudienceDisabled,
   setFiftyFiftyDisabled,
 }) {
   useEffect(function () {
@@ -74,6 +72,7 @@ export default function Question({
     setDisabled((d) => !d);
     // setDeadFiftyFifty(true);
     setFiftyFiftyDisabled(true);
+    setAudienceDisabled(true);
   }
 
   return (
