@@ -198,6 +198,12 @@ body {
   border-radius: 5px;
 }
 
+.prize-running-save {
+  background-color: var(--btn-hover-color);
+  color: var(--text-white-color);
+  border-radius: 5px;
+}
+
 /* option component */
 .option {
   display: flex;

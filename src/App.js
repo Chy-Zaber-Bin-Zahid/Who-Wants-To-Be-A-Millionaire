@@ -21,6 +21,7 @@ function App() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [removeTag, setRemoveTag] = useState(null);
   const [addClass, setAddClass] = useState("");
+  const [dollar, setDollar] = useState("0 $");
   const [fiftyFiftyDisabled, setFiftyFiftyDisabled] = useState(true);
   const [fiftyFifty, setFiftyFifty] = useState(false);
   const [deadFiftyFifty, setDeadFiftyFifty] = useState(null);
@@ -67,7 +68,14 @@ function App() {
     <>
       <div className="app">
         <div className="left-column">
-          <Popup timer={timer} start={start} />
+          <Popup
+            timer={timer}
+            start={start}
+            currentIndex={currentIndex}
+            setDollar={setDollar}
+            dollar={dollar}
+            removeTag={removeTag}
+          />
           <Icon />
           <Timer
             timer={timer}
@@ -86,6 +94,8 @@ function App() {
             setAddClass={setAddClass}
             deadFiftyFifty={deadFiftyFifty}
             setFiftyFiftyDisabled={setFiftyFiftyDisabled}
+            currentIndex={currentIndex}
+            removeTag={removeTag}
           />
           <Question
             questionStart={questionStart}
@@ -141,6 +151,8 @@ function App() {
               setFiftyFifty={setFiftyFifty}
               deadFiftyFifty={deadFiftyFifty}
               setDeadFiftyFifty={setDeadFiftyFifty}
+              setDollar={setDollar}
+              currentIndex={currentIndex}
             />
             <p className="creator">Made By Chowdhury Zaber Bin Zahid | 2023</p>
           </div>

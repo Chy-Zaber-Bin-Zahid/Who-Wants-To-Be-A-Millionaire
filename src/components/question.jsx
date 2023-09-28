@@ -42,6 +42,7 @@ export default function Question({
 
   useEffect(() => {
     if (question[random]) {
+      console.log(question[random].correct_answer);
       setAnswer(
         [
           question[random].correct_answer,
@@ -68,7 +69,7 @@ export default function Question({
 
   function checkAns(idx) {
     setClickedBtn(idx);
-    setTimer(3);
+    setTimer(1);
     setStart("/sound/clicked.mp3");
     setDisabled((d) => !d);
     // setDeadFiftyFifty(true);

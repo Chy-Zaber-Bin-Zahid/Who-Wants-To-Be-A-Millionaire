@@ -17,6 +17,8 @@ export default function Timer({
   setAddClass,
   deadFiftyFifty,
   setFiftyFiftyDisabled,
+  currentIndex,
+  removeTag,
 }) {
   useEffect(() => {
     if (start !== "/sound/intro.mp3" && timer !== 0) {
@@ -34,7 +36,13 @@ export default function Timer({
     } else if (timer === 0 && start === "/sound/clicked.mp3") {
       if (question[random].correct_answer === answer[clickedBtn]) {
         setRightWrong(true);
-        setStart("/sound/right.mp3");
+        console.log(currentIndex,removeTag)
+        if (currentIndex === 1 && removeTag === true) {
+          setStart("/sound/victory.mp3");
+        } else {
+          setStart("/sound/right.mp3");
+        }
+
         setCorrectShow(true);
         setRemoveTag(true);
       } else {

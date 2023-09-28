@@ -13,7 +13,9 @@ export default function Start({
   setFiftyFiftyDisabled,
   setFiftyFifty,
   deadFiftyFifty,
-  setDeadFiftyFifty
+  setDeadFiftyFifty,
+  setDollar,
+  currentIndex,
 }) {
   function handleStart() {
     setStart("/sound/background.mp3");
@@ -34,7 +36,8 @@ export default function Start({
     setAddClass("");
     setFiftyFiftyDisabled(false);
     setFiftyFifty(false);
-    setDeadFiftyFifty(null)
+    setDeadFiftyFifty(null);
+    setDollar("0 $");
   }
 
   function handleNext() {
@@ -65,7 +68,14 @@ export default function Start({
         <button disabled>Answer Question</button>
       )}
       {start === "/sound/right.mp3" && (
-        <button onClick={handleNext}>Next Question</button>
+        <button onClick={handleNext}>
+          Next Question
+        </button>
+      )}
+      {start === "/sound/victory.mp3" && (
+        <button onClick={handleAgain}>
+         Play Again
+        </button>
       )}
       {start === "/sound/wrong.mp3" && (
         <button onClick={handleAgain}>Play Again</button>

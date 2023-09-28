@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 
 export default function Prize({
   correctShow,
@@ -11,9 +11,17 @@ export default function Prize({
   useEffect(() => {
     h1Elements.forEach((h1, index) => {
       if (index === currentIndex && removeTag === true) {
-        h1.classList.add("prize-running");
+        if (h1.classList.contains("prize-save")) {
+          h1.classList.add("prize-running-save");
+        } else {
+          h1.classList.add("prize-running");
+        }
       } else {
-        h1.classList.remove("prize-running");
+        if (h1.classList.contains("prize-save")) {
+          h1.classList.remove("prize-running-save");
+        } else {
+          h1.classList.remove("prize-running");
+        }
       }
     });
   }, [currentIndex]);
