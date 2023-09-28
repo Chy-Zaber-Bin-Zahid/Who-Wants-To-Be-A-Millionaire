@@ -18,6 +18,7 @@ export default function Question({
   fiftyFifty,
   setAudienceDisabled,
   setFiftyFiftyDisabled,
+  setPhoneDisabled,
 }) {
   useEffect(function () {
     async function fetchQuestion() {
@@ -73,6 +74,7 @@ export default function Question({
     // setDeadFiftyFifty(true);
     setFiftyFiftyDisabled(true);
     setAudienceDisabled(true);
+    setPhoneDisabled(true);
   }
 
   return (

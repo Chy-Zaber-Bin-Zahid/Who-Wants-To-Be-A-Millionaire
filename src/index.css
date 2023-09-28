@@ -289,7 +289,7 @@ body {
   width: 70%;
 }
 
-.audience-on{
+.audience-on {
   display: block;
 }
 
@@ -297,30 +297,70 @@ body {
   width: 100%;
   background-color: none;
   margin-bottom: 10px;
-  
 }
 
 .filled-bar {
   height: 100%;
-  background-color:var(--text-prize-color);
-  
+  background-color: var(--text-prize-color);
 }
 
-.label{
+.label {
   color: var(--text-prize-color);
 }
 
-.audience-close{
+.audience-close {
   position: absolute;
   top: 0;
   right: 0;
-  padding: .2rem .8rem;
+  padding: 0.2rem 0.8rem;
   font-size: 1.6rem;
   border-radius: 50%;
   background-color: var(--primary-color);
   color: white;
 }
 
-.audience-close:hover{
+.audience-close:hover {
   cursor: pointer;
+}
+
+/* phone component */
+.phone {
+  border: 2px solid var(--text-white-color);
+  padding: 2rem;
+  font-size: 2.2rem;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000000af;
+  display: none;
+  width: 70%;
+}
+
+.phone-on {
+  display: block;
+}
+
+.phone-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.2rem 0.8rem;
+  font-size: 1.6rem;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.phone-close:hover {
+  cursor: pointer;
+}
+
+.ans {
+  color: var(--text-prize-color);
+  font-weight: bold;
 }

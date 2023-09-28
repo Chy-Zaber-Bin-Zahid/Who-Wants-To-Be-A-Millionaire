@@ -7,6 +7,7 @@ import Start from "./components/start";
 import ThreeOption from "./components/threeOption";
 import Popup from "./components/popup";
 import Audience from "./components/audience";
+import Phone from "./components/phone";
 
 function App() {
   const [start, setStart] = useState("/sound/intro.mp3");
@@ -31,6 +32,9 @@ function App() {
   const [audienceDisabled, setAudienceDisabled] = useState(true);
   const [audience, setAudience] = useState(false);
   const [deadAudience, setDeadAudience] = useState(null);
+  const [phoneDisabled, setPhoneDisabled] = useState(true);
+  const [phone, setPhone] = useState(false);
+  const [deadPhone, setDeadPhone] = useState(null);
 
   useEffect(() => {
     const playAudio = async () => {
@@ -74,12 +78,12 @@ function App() {
     <>
       <div className="app">
         <div className="left-column">
+          <Phone setPhone={setPhone} phone={phone} answer={answer} />
           <Audience
             answer={answer}
             audience={audience}
             setAudience={setAudience}
             percentages={percentages}
-
           />
           <Popup
             timer={timer}
@@ -129,6 +133,7 @@ function App() {
             fiftyFifty={fiftyFifty}
             setFiftyFiftyDisabled={setFiftyFiftyDisabled}
             setAudienceDisabled={setAudienceDisabled}
+            setPhoneDisabled={setPhoneDisabled}
           />
         </div>
         <div className="right-column">
@@ -154,6 +159,11 @@ function App() {
               audienceDisabled={audienceDisabled}
               setPercentages={setPercentages}
               answer={answer}
+              phoneDisabled={phoneDisabled}
+              setPhoneDisabled={setPhoneDisabled}
+              setDeadPhone={setDeadPhone}
+              setPhone={setPhone}
+              deadPhone={deadPhone}
             />
             <Start
               start={start}
@@ -176,6 +186,11 @@ function App() {
               setAudience={setAudience}
               setDeadAudience={setDeadAudience}
               setAudienceDisabled={setAudienceDisabled}
+              setPhoneDisabled={setPhoneDisabled}
+              setPhone={setPhone}
+              setDeadPhone={setDeadPhone}
+              deadAudience={deadAudience}
+              deadPhone={deadPhone}
             />
             <p className="creator">Made By Chowdhury Zaber Bin Zahid | 2023</p>
           </div>

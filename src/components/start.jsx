@@ -15,17 +15,22 @@ export default function Start({
   deadFiftyFifty,
   setDeadFiftyFifty,
   setDollar,
-
   setLeave,
   setAudience,
   setDeadAudience,
   setAudienceDisabled,
+  setPhoneDisabled,
+  setPhone,
+  setDeadPhone,
+  deadAudience,
+  deadPhone,
 }) {
   function handleStart() {
     setStart("/sound/background.mp3");
     setQuestionStart((q) => !q);
     setFiftyFiftyDisabled(false);
     setAudienceDisabled(false);
+    setPhoneDisabled(false);
   }
 
   function handleAgain() {
@@ -42,11 +47,14 @@ export default function Start({
     setFiftyFiftyDisabled(false);
     setFiftyFifty(false);
     setAudience(false);
+    setPhone(false);
     setDeadFiftyFifty(null);
     setDeadAudience(null);
+    setDeadPhone(null);
     setDollar("0 $");
     setLeave(false);
     setAudienceDisabled(false);
+    setPhoneDisabled(false);
   }
 
   function handleNext() {
@@ -66,12 +74,27 @@ export default function Start({
       setFiftyFiftyDisabled(true);
       console.log("helloT");
     }
+    if (deadAudience === null) {
+      console.log("helloF");
+      setAudienceDisabled(false);
+    } else if (deadAudience === false) {
+      setAudienceDisabled(true);
+      console.log("helloT");
+    }
+    if (deadPhone === null) {
+      console.log("helloF");
+      setPhoneDisabled(false);
+    } else if (deadPhone === false) {
+      setPhoneDisabled(true);
+      console.log("helloT");
+    }
   }
 
   function handleLeave() {
     setTimer(0);
     setLeave(true);
     setAudienceDisabled(true);
+    setPhoneDisabled(true);
   }
 
   return (

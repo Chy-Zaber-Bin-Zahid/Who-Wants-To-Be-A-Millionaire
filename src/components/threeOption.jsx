@@ -13,27 +13,32 @@ export default function ThreeOption({
   audienceDisabled,
   setPercentages,
   answer,
+  phoneDisabled,
+  setPhone,
+  setPhoneDisabled,
+  setDeadPhone,
+  deadPhone,
 }) {
-  const percen = [];
+  const percent = [];
   useEffect(() => {
     let remaining = 100;
     if (answer.length === 4) {
       for (let i = 0; i < 3; i++) {
         const randomPercentage =
           Math.floor(Math.random() * (remaining - 1)) + 1;
-        percen.push(randomPercentage);
+        percent.push(randomPercentage);
         remaining -= randomPercentage;
       }
     } else {
       for (let i = 0; i < 1; i++) {
         const randomPercentage =
           Math.floor(Math.random() * (remaining - 1)) + 1;
-        percen.push(randomPercentage);
+        percent.push(randomPercentage);
         remaining -= randomPercentage;
       }
     }
-    percen.push(remaining);
-    setPercentages(percen);
+    percent.push(remaining);
+    setPercentages(percent);
   }, [answer]);
 
   function clickedFiftyFifty() {
@@ -46,6 +51,12 @@ export default function ThreeOption({
     setAudienceDisabled(true);
     setDeadAudience(true);
     setAudience(true);
+  }
+
+  function clickedPhone() {
+    setPhoneDisabled(true);
+    setDeadPhone(true);
+    setPhone(true);
   }
 
   return (
@@ -67,9 +78,10 @@ export default function ThreeOption({
         👨‍👧‍👦
       </button>
       <button
-        disabled={fiftyFiftyDisabled}
-        onClick={clickedFiftyFifty}
+        disabled={phoneDisabled}
+        onClick={clickedPhone}
         title="Call"
+        className={`${deadPhone === true && "disabled"}`}
       >
         📞
       </button>
