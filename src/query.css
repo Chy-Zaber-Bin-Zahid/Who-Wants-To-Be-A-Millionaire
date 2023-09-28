@@ -1,0 +1,118 @@
+@media (max-width: 1970px) {
+  html,
+  body {
+    font-size: 80%;
+  }
+}
+
+@media (max-width: 1400px) {
+  html,
+  body {
+    font-size: 65.5%;
+  }
+}
+
+@media (max-width: 1070px) {
+  html,
+  body {
+    font-size: 60.5%;
+  }
+
+  .answer {
+    font-size: 2rem;
+  }
+
+  .option-three button {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 800px) {
+  html,
+  body {
+    font-size: 55.5%;
+  }
+
+  .count-down {
+    font-size: 2rem;
+  }
+
+  .count-bellow {
+    padding: 1rem 2rem;
+  }
+
+  .prize-text {
+    font-size: 1.8rem;
+  }
+
+  .main-question {
+    font-size: 2rem;
+  }
+
+  .answer {
+    font-size: 1.8rem;
+  }
+
+  .option-three button {
+    font-size: 1.4rem;
+  }
+
+  .popup {
+    font-size: 2rem;
+  }
+
+  .creator {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 600px) {
+  html,
+  body {
+    font-size: 60%;
+  }
+
+  .app {
+    grid-template-columns: 1fr;
+  }
+
+  .right-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 100%;
+  }
+
+  .prize {
+    border-right: 1px solid white;
+    border-bottom: none;
+  }
+
+  .popup {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 520px) {
+  html,
+  body {
+    font-size: 45.5%;
+  }
+
+  .left-column {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 400px){
+  .option-three button {
+    font-size: 1.2rem;
+  }
+
+  .popup {
+    font-size: 1.3rem;
+  }
+
+  .creator {
+    font-size: 1.1rem;
+  }
+}

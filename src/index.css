@@ -20,6 +20,9 @@ body {
 
 /* app component */
 .app {
+  padding-top: 1rem;
+  max-width: 187rem;
+  margin: 0 auto;
   height: 100vh;
   display: grid;
   grid-template-columns: 2fr 1fr;
