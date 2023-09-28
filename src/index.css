@@ -104,8 +104,6 @@ body {
   padding: 1rem;
 }
 
-
-
 .answer:hover {
   cursor: pointer;
   /* color: var(--text-black-color); */
@@ -141,10 +139,9 @@ body {
   padding: 1rem;
   background-color: var(--btn-hover-color);
   box-shadow: none;
-  
 }
 
-.correct{
+.correct {
   font-size: 2.2rem;
   display: flex;
   justify-content: left;
@@ -155,7 +152,7 @@ body {
   padding: 1rem;
 }
 
-.wrong{
+.wrong {
   font-size: 2.2rem;
   display: flex;
   justify-content: left;
@@ -166,11 +163,11 @@ body {
   padding: 1rem;
 }
 
-.answer-span-clicked{
+.answer-span-clicked {
   color: var(--text-white-color);
 }
 
-.fetch-ans-clicked{
+.fetch-ans-clicked {
   color: var(--text-black-color);
 }
 
@@ -235,8 +232,13 @@ body {
   color: var(--text-white-color);
 }
 
+.disabled {
+  background-color: rgb(78, 78, 78) !important;
+  color: var(--text-white-color) !important;
+}
+
 /* popup component */
-.popup{
+.popup {
   border: 2px solid var(--text-white-color);
   padding: 2rem;
   font-size: 2.2rem;
@@ -244,7 +246,7 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -252,10 +254,10 @@ body {
   display: none;
 }
 
-.display{
+.display {
   display: block;
 }
 
-.dollar{
+.dollar {
   color: var(--text-prize-color);
 }

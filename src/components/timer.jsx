@@ -16,7 +16,7 @@ export default function Timer({
   setDisabled,
   setAddClass,
   deadFiftyFifty,
-  setFiftyFiftyDisabled
+  setFiftyFiftyDisabled,
 }) {
   useEffect(() => {
     if (start !== "/sound/intro.mp3" && timer !== 0) {

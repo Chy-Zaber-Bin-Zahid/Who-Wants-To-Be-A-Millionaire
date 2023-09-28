@@ -3,6 +3,7 @@ export default function ThreeOption({
   setFiftyFiftyDisabled,
   setFiftyFifty,
   setDeadFiftyFifty,
+  deadFiftyFifty,
 }) {
   function clickedFiftyFifty() {
     setFiftyFiftyDisabled(true);
@@ -16,6 +17,7 @@ export default function ThreeOption({
         disabled={fiftyFiftyDisabled}
         onClick={clickedFiftyFifty}
         title="50:50"
+        className={`${deadFiftyFifty === true && "disabled"}`}
       >
         50:50
       </button>

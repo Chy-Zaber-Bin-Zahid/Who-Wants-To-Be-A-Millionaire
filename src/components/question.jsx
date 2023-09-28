@@ -42,14 +42,26 @@ export default function Question({
 
   useEffect(() => {
     if (question[random]) {
-      setAnswer(
-        [
-          question[random].correct_answer,
-          question[random].incorrect_answers[0],
-          question[random].incorrect_answers[1],
-          question[random].incorrect_answers[2],
-        ].sort(() => Math.random() - 0.5)
-      );
+      const shuffleArray = [
+        question[random].correct_answer,
+        question[random].incorrect_answers[0],
+        question[random].incorrect_answers[1],
+        question[random].incorrect_answers[2],
+      ];
+      for (let i = shuffleArray.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffleArray[i], shuffleArray[j]] = [shuffleArray[j], shuffleArray[i]];
+      }
+
+      setAnswer(shuffleArray);
+      // setAnswer(
+      //   [
+      //     question[random].correct_answer,
+      //     question[random].incorrect_answers[0],
+      //     question[random].incorrect_answers[1],
+      //     question[random].incorrect_answers[2],
+      //   ].sort(() => Math.random() - 0.5)
+      // );
     }
   }, [questionStart, question, random]);
 
@@ -72,7 +84,7 @@ export default function Question({
     setStart("/sound/clicked.mp3");
     setDisabled((d) => !d);
     // setDeadFiftyFifty(true);
-    setFiftyFiftyDisabled(true)
+    setFiftyFiftyDisabled(true);
   }
 
   return (
@@ -92,7 +104,7 @@ export default function Question({
           }
           onClick={() => checkAns(index)}
           key={index}
-          className={`${
+          className={`default ${
             clickedBtn === index
               ? rightWrong === true
                 ? "correct"

@@ -49,10 +49,9 @@ function App() {
 
   useEffect(() => {
     if (addClass !== "") {
-      const buttons = document.querySelectorAll(".answer");
+      const buttons = document.querySelectorAll(".default");
       buttons.forEach((button, index) => {
-        if (index === answer.indexOf(question[random].correct_answer)) {
-          console.log(index, answer.indexOf(question[random].correct_answer));
+        if (answer[index] === question[random].correct_answer) {
           button.classList.add("correct");
         }
       });
@@ -62,7 +61,7 @@ function App() {
         button.classList.remove("correct");
       });
     }
-  }, [addClass, question, answer]);
+  }, [addClass, question, answer, random]);
 
   return (
     <>
@@ -123,6 +122,7 @@ function App() {
               setFiftyFiftyDisabled={setFiftyFiftyDisabled}
               fiftyFiftyDisabled={fiftyFiftyDisabled}
               setFiftyFifty={setFiftyFifty}
+              deadFiftyFifty={deadFiftyFifty}
               setDeadFiftyFifty={setDeadFiftyFifty}
             />
             <Start
