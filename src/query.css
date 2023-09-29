@@ -33,6 +33,10 @@
     font-size: 55.5%;
   }
 
+  .logo {
+    width: 30rem;
+  }
+
   .count-down {
     font-size: 2rem;
   }
@@ -96,6 +100,10 @@
   html,
   body {
     font-size: 45.5%;
+  }
+
+  .logo {
+    width: 30rem;
   }
 
   .left-column {
