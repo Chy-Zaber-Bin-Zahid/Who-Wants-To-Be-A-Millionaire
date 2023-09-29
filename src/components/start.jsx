@@ -66,6 +66,8 @@ export default function Start({
     setRightWrong(null);
     setCorrectShow(false);
     setAddClass("");
+    setAudience(false)
+    setPhone(false)
     console.log("hello");
     if (deadFiftyFifty === null) {
       console.log("helloF");

@@ -55,20 +55,28 @@ export default function Question({
 
   useEffect(() => {
     if (question[random]) {
-      const twoIndex = [];
-      const searchString = question[random].correct_answer;
-      twoIndex.push(searchString);
-      answer.pop(searchString);
-      const randomIndex = Math.floor(Math.random() * answer.length);
-      twoIndex.push(answer[randomIndex]);
-      twoIndex.sort(() => Math.random() - 0.5);
-      setAnswer(twoIndex);
+      setAnswer((prevAnswer) => {
+        const twoIndex = [];
+        const correctAns = question[random].correct_answer;
+        twoIndex.push(correctAns);
+
+        const newArray = prevAnswer.filter((item) => item !== twoIndex[0]);
+        console.log(twoIndex,newArray);
+
+        const randomIndex = Math.floor(Math.random() * newArray.length);
+        twoIndex.push(newArray[randomIndex]);
+        twoIndex.sort(() => Math.random() - 0.5);
+
+        console.log(twoIndex);
+        return twoIndex;
+      });
     }
+    console.log(answer);
   }, [fiftyFifty]);
 
   function checkAns(idx) {
     setClickedBtn(idx);
-    setTimer(1);
+    setTimer(3);
     setStart("/sound/clicked.mp3");
     setDisabled((d) => !d);
     // setDeadFiftyFifty(true);
