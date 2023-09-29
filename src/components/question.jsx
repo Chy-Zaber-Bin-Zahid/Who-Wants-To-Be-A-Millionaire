@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Question({
   questionStart,
@@ -19,6 +19,8 @@ export default function Question({
   setAudienceDisabled,
   setFiftyFiftyDisabled,
   setPhoneDisabled,
+  usedRandomNumbers,
+  setUsedRandomNumbers,
 }) {
   useEffect(function () {
     async function fetchQuestion() {
@@ -34,7 +36,22 @@ export default function Question({
 
   useEffect(
     function () {
-      setRandom(Math.floor(Math.random() * question.length));
+      if (usedRandomNumbers.length === 0) {
+        const store = Math.floor(Math.random() * question.length);
+        setRandom(store);
+        setUsedRandomNumbers((prevItems) => [...prevItems, store]);
+      } else {
+        for (let i = 0; i < question.length; i++) {
+          const store = Math.floor(Math.random() * question.length);
+          if (usedRandomNumbers.includes(store)) {
+            continue;
+          } else {
+            setRandom(store);
+            setUsedRandomNumbers((prevItems) => [...prevItems, store]);
+            break;
+          }
+        }
+      }
     },
     [questionStart, question.length]
   );
@@ -61,7 +78,7 @@ export default function Question({
         twoIndex.push(correctAns);
 
         const newArray = prevAnswer.filter((item) => item !== twoIndex[0]);
-        console.log(twoIndex,newArray);
+        console.log(twoIndex, newArray);
 
         const randomIndex = Math.floor(Math.random() * newArray.length);
         twoIndex.push(newArray[randomIndex]);

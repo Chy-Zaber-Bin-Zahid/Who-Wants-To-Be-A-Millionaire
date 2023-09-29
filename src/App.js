@@ -35,6 +35,7 @@ function App() {
   const [phoneDisabled, setPhoneDisabled] = useState(true);
   const [phone, setPhone] = useState(false);
   const [deadPhone, setDeadPhone] = useState(null);
+  const [usedRandomNumbers, setUsedRandomNumbers] = useState([]);
 
   useEffect(() => {
     const playAudio = async () => {
@@ -134,6 +135,8 @@ function App() {
             setFiftyFiftyDisabled={setFiftyFiftyDisabled}
             setAudienceDisabled={setAudienceDisabled}
             setPhoneDisabled={setPhoneDisabled}
+            usedRandomNumbers={usedRandomNumbers}
+            setUsedRandomNumbers={setUsedRandomNumbers}
           />
         </div>
         <div className="right-column">
@@ -191,6 +194,7 @@ function App() {
               setDeadPhone={setDeadPhone}
               deadAudience={deadAudience}
               deadPhone={deadPhone}
+              setUsedRandomNumbers={setUsedRandomNumbers}
             />
             <p className="creator">Made By Chowdhury Zaber Bin Zahid | 2023</p>
           </div>

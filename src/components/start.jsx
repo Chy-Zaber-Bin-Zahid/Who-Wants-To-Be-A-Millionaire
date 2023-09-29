@@ -24,6 +24,7 @@ export default function Start({
   setDeadPhone,
   deadAudience,
   deadPhone,
+  setUsedRandomNumbers,
 }) {
   function handleStart() {
     setStart("/sound/background.mp3");
@@ -55,6 +56,7 @@ export default function Start({
     setLeave(false);
     setAudienceDisabled(false);
     setPhoneDisabled(false);
+    setUsedRandomNumbers([]);
   }
 
   function handleNext() {
@@ -66,8 +68,8 @@ export default function Start({
     setRightWrong(null);
     setCorrectShow(false);
     setAddClass("");
-    setAudience(false)
-    setPhone(false)
+    setAudience(false);
+    setPhone(false);
     console.log("hello");
     if (deadFiftyFifty === null) {
       console.log("helloF");
