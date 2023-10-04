@@ -1,4 +1,4 @@
-import { useEffect} from "react";
+import { useEffect } from "react";
 
 export default function Timer({
   timer,
@@ -15,11 +15,12 @@ export default function Timer({
   setRemoveTag,
   setDisabled,
   setAddClass,
-
+  setAudienceDisabled,
   setFiftyFiftyDisabled,
   currentIndex,
   removeTag,
   leave,
+  setPhoneDisabled,
 }) {
   useEffect(() => {
     if (start !== "/sound/intro.mp3" && timer !== 0) {
@@ -31,14 +32,15 @@ export default function Timer({
       return () => {
         clearInterval(timerInterval);
       };
-    }
-    
-    else if (timer === 0 && leave === true) {
+    } else if (timer === 0 && leave === true) {
       setFiftyFiftyDisabled(true);
       setDisabled(true);
       setStart("/sound/leave.mp3");
     } else if (timer === 0 && start === "/sound/background.mp3") {
       setDisabled((d) => !d);
+      setFiftyFiftyDisabled(true);
+      setAudienceDisabled(true);
+      setPhoneDisabled(true);
       setStart("/sound/wrong.mp3");
     } else if (timer === 0 && start === "/sound/clicked.mp3") {
       if (question[random].correct_answer === answer[clickedBtn]) {

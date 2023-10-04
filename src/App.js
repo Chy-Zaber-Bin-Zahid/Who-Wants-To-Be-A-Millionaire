@@ -114,6 +114,8 @@ function App() {
             currentIndex={currentIndex}
             removeTag={removeTag}
             leave={leave}
+            setPhoneDisabled={setPhoneDisabled}
+            setAudienceDisabled={setAudienceDisabled}
           />
           <Question
             questionStart={questionStart}
