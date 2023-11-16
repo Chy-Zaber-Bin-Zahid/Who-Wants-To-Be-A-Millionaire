@@ -97,6 +97,7 @@ export default function Start({
   function handleLeave() {
     setTimer(0);
     setLeave(true);
+    setDollar("0 $");
     setAudienceDisabled(true);
     setPhoneDisabled(true);
   }
@@ -115,10 +116,7 @@ export default function Start({
       {start === "/sound/victory.mp3" && (
         <button onClick={handleAgain}>Play Again</button>
       )}
-      {start === "/sound/wrong.mp3" && (
-        <button onClick={handleAgain}>Play Again</button>
-      )}
-      {start === "/sound/leave.mp3" && (
+      {(start === "/sound/wrong.mp3" || start === "/sound/leave.mp3") && (
         <button onClick={handleAgain}>Play Again</button>
       )}
     </div>
