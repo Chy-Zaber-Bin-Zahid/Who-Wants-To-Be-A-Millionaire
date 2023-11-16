@@ -115,7 +115,10 @@ export default function Start({
       {start === "/sound/victory.mp3" && (
         <button onClick={handleAgain}>Play Again</button>
       )}
-      {(start === "/sound/wrong.mp3" || start === "/sound/leave.mp3") && (
+      {start === "/sound/wrong.mp3" && (
+        <button onClick={handleAgain}>Play Again</button>
+      )}
+      {start === "/sound/leave.mp3" && (
         <button onClick={handleAgain}>Play Again</button>
       )}
     </div>
